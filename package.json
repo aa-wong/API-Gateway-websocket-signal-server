@@ -1,0 +1,31 @@
+{
+  "name": "signal-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=production node dist/serverless.js",
+    "dev:local": "NODE_ENV=development nodemon local.js --exec babel-node",
+    "dev:sls": "sls offline",
+    "build": "babel src -d dist",
+    "test": "NODE_ENV=test mocha --compilers js:babel-register --timeout 10000",
+    "deploy": "npm run build && serverless deploy --aws-profile personal-aws-admin"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.686.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.7",
+    "serverless-http": "^2.5.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "dotenv": "^8.2.0",
+    "nodemon": "^1.19.4",
+    "serverless-offline": "^5.12.1"
+  }
+}
